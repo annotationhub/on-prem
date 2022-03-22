@@ -1,0 +1,7 @@
+*.env
+!*.template.env
+
+web-client.js
+!web-client.template.js
+
+pgdata/
