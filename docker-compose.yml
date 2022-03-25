@@ -67,10 +67,12 @@ services:
     image: nginx:1.21.6
     volumes:
       - "./conf/nginx/:/etc/nginx/"
+      - "/home/annolab/.certbot/config/live/annotationhub.com/fullchain.pem:/etc/nginx/fullchain.pem"
+      - "/home/annolab/.certbot/config/live/annotationhub.com/privkey.pem:/etc/nginx/privkey.pem"
     depends_on:
       server:
         condition: service_healthy
       client:
         condition: service_healthy
     ports:
-      - "80:80"
+      - "443:443"
