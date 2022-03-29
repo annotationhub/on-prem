@@ -13,6 +13,8 @@ Environment-specific configuration is applied by creating and updating the follo
 
 `server` -> `configuration file`
 
-1. `db`         -> `db.env`         (Template is `db.template.env`)
-2. `web-server` -> `web-server.env` (Template is `web-server.template.env`)
-3. `web-client` -> `web-client.js`  (Template is `web-client.template.js`)
+1. `db`         -> `conf/db/db.env`         (Template is `db.template.env`)
+2. `server`     -> `conf/web-server/web-server.env` (Template is `web-server.template.env`)
+3. `client`     -> `conf/web-client/web-client.js`  (Template is `web-client.template.js`)
+4. `workers`    -> `conf/workers/workers.env`    (Template is `workeers.template.env` )
+## Updating database
