@@ -67,10 +67,12 @@ services:
     image: nginx:1.21.6
     volumes:
       - "./conf/nginx/:/etc/nginx/"
+      - "${SSL_CERT_PATH}:/etc/certs/fullchain.pem"
+      - "${SSL_KEY_PATH}:/etc/certs/privkey.pem"    
     depends_on:
       server:
         condition: service_healthy
       client:
         condition: service_healthy
     ports:
-      - "80:80"
+      - "443:443"
