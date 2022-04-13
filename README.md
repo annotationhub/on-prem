@@ -7,6 +7,7 @@ This repository contains a docker-compose yml file defining the server cluster s
 
 Making updates to on premise deployments should be done by 1) making a change in the corresponding git repository, 2) pushing a new verison tag containing the `onprem` postfix and 3) Updating the docker-compose file in this repository.
 
+
 ## Configuration
 
 Environment-specific configuration is applied by creating and updating the following files at the root of this project (never commit these files).
@@ -17,4 +18,30 @@ Environment-specific configuration is applied by creating and updating the follo
 2. `server`     -> `conf/web-server/web-server.env` (Template is `web-server.template.env`)
 3. `client`     -> `conf/web-client/web-client.js`  (Template is `web-client.template.js`)
 4. `workers`    -> `conf/workers/workers.env`    (Template is `workeers.template.env` )
+
+
+## Launch
+
+Ensure environment variables defining paths to the ssl cert and private key are available when launching. To manually specify, this can be done by:
+
+```bash
+SSL_CERT_PATH=/path/to/cert SSL_KEY_PATH=/path/to/key docker-compose up -d
+```
+
 ## Updating database
+
+TBD
+
+## Auth Configuration
+
+An on-prem deployment most likely uses internal authenication (configurated as AUTH_PROVIDER="AnnoLab"). Do *not* use the client secret defined in the template. Generate a new 64 random character client secret.
+
+On Linux this can be done by using /dev/urandom
+
+```bash
+cat /dev/urandom | tr -dc '[:alpha:]' | fold -w ${1:-64} | head -n 1
+```
+
+## Nginx Conf
+
+Update the `server_name` records in `conf/nginx/nginx.conf` so that the hostnames match whatever domains the app is being launched under. E.g. `app.<custom-domain>.com` and `api.<custom-domain>.com`.
