@@ -8,11 +8,13 @@ services:
       - "5432:5432"
     volumes:
       - "./pgdata:/var/lib/postgresql/data"
+    restart: always
     healthcheck:
       test: "exit 0"
 
   redis:
     image: redis:6.2.5-alpine
+    restart: always
     ports:
       - "6379:6379"
 
@@ -20,6 +22,7 @@ services:
     env_file:
       - ./conf/web-server/web-server.env
     image: crossfold/web-server:v1.13.0.onprem
+    restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
     depends_on:
@@ -36,6 +39,7 @@ services:
     env_file:
       - ./conf/workers/workers.env
     image: crossfold/web-server:v1.13.0.onprem
+    restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
     depends_on:
@@ -52,6 +56,7 @@ services:
 
   client:
     image: crossfold/web-client:v1.13.12.onprem
+    restart: always
     volumes:
       - "./conf/web-client/web-client.js:/app/public/env.js"
     depends_on:
@@ -65,6 +70,7 @@ services:
 
   proxy:
     image: nginx:1.21.6
+    restart: always
     volumes:
       - "./conf/nginx/:/etc/nginx/"
       - "${SSL_CERT_PATH}:/etc/certs/fullchain.pem"

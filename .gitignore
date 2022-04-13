@@ -1,5 +1,6 @@
 *.env
 !*.template.env
+*.p12
 
 web-client.js
 !web-client.template.js
