@@ -26,8 +26,7 @@ services:
     environment:
       - DATABASE_HUBDB_HOST=db
     volumes:
-      - "${DATA_SOURCE_PATH}:/var/data/sources"
-      - "${DATA_UPLOADS_PATH}:/var/data/uploads"
+      - "${DATA_DIRECTORY}:/var/data"
     depends_on:
       db:
         condition: service_healthy
@@ -46,8 +45,7 @@ services:
     environment:
       - DATABASE_HUBDB_HOST=db
     volumes:
-      - "${DATA_SOURCE_PATH}:/var/data/sources"
-      - "${DATA_UPLOADS_PATH}:/var/data/uploads"
+      - "${DATA_DIRECTORY}:/var/data"
     depends_on:
       db:
         condition: service_healthy
