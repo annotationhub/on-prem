@@ -17,15 +17,13 @@ Environment-specific configuration is applied by creating and updating the follo
 1. `db`         -> `conf/db/db.env`         (Template is `db.template.env`)
 2. `server`     -> `conf/web-server/web-server.env` (Template is `web-server.template.env`)
 3. `client`     -> `conf/web-client/web-client.js`  (Template is `web-client.template.js`)
-4. `workers`    -> `conf/workers/workers.env`    (Template is `workeers.template.env` )
-
+4. `workers`    -> `conf/workers/workers.env`    (Template is `workers.template.env` )
+5. `docker-compose` -> `conf/.docker-compose-env` (Template is `.docker-compose-env.template`)
 
 ## Launch
 
-Ensure environment variables defining paths to the ssl cert and private key are available when launching. To manually specify, this can be done by:
-
 ```bash
-SSL_CERT_PATH=/path/to/cert SSL_KEY_PATH=/path/to/key docker-compose up -d
+docker-compose --env-file ./conf/.docker-compose-env up -d
 ```
 
 ## Updating database
