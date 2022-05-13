@@ -55,7 +55,7 @@ services:
     command: "yarn start:worker:combo:prod"
 
   client:
-    image: crossfold/web-client:v1.14.0.onprem
+    image: crossfold/web-client:v1.14.2.onprem
     restart: always
     volumes:
       - "./conf/web-client/web-client.js:/app/public/env.js"
