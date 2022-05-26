@@ -3,7 +3,7 @@ services:
   db:
     env_file:
       - ./conf/db/db.env
-    image: crossfold/hub-db:1.4.6
+    image: crossfold/hub-db:1.4.7
     ports:
       - "5432:5432"
     volumes:
@@ -21,7 +21,7 @@ services:
   server:
     env_file:
       - ./conf/web-server/web-server.env
-    image: crossfold/web-server:v1.14.0.onprem
+    image: crossfold/web-server:v1.14.4.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -40,7 +40,7 @@ services:
   workers:
     env_file:
       - ./conf/workers/workers.env
-    image: crossfold/web-server:v1.14.0.onprem
+    image: crossfold/web-server:v1.14.4.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -59,7 +59,7 @@ services:
     command: "yarn start:worker:combo:prod"
 
   client:
-    image: crossfold/web-client:v1.14.2.onprem
+    image: crossfold/web-client:v1.14.6.onprem
     restart: always
     volumes:
       - "./conf/web-client/web-client.js:/app/public/env.js"
