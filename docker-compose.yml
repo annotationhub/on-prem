@@ -21,7 +21,7 @@ services:
   server:
     env_file:
       - ./conf/web-server/web-server.env
-    image: crossfold/web-server:v1.15.2.onprem
+    image: crossfold/web-server:v1.15.3.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
