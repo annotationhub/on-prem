@@ -21,7 +21,7 @@ services:
   server:
     env_file:
       - ./conf/web-server/web-server.env
-    image: crossfold/web-server:v1.15.12.onprem
+    image: crossfold/web-server:v1.15.13.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -40,7 +40,7 @@ services:
   workers:
     env_file:
       - ./conf/workers/workers.env
-    image: crossfold/web-server:v1.15.12.onprem
+    image: crossfold/web-server:v1.15.13.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -61,7 +61,7 @@ services:
   inference-worker:
     env_file:
       - ./conf/inference-worker/inference-worker.env
-    image: crossfold/web-server:v1.15.12.onprem
+    image: crossfold/web-server:v1.15.13.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -79,7 +79,7 @@ services:
     command: "yarn start:worker:inferences:prod"
 
   client:
-    image: crossfold/web-client:v1.15.14.onprem
+    image: crossfold/web-client:v1.15.15.onprem
     restart: always
     volumes:
       - "./conf/web-client/web-client.js:/app/public/env.js"
@@ -98,7 +98,7 @@ services:
     volumes:
       - "./conf/nginx/:/etc/nginx/"
       - "${SSL_CERT_PATH}:/etc/certs/fullchain.pem"
-      - "${SSL_KEY_PATH}:/etc/certs/privkey.pem"    
+      - "${SSL_KEY_PATH}:/etc/certs/privkey.pem"
     depends_on:
       server:
         condition: service_healthy
