@@ -53,7 +53,7 @@ services:
         condition: service_started
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8081", "&&", "curl", "-f", "http://localhost:8082"]
-    ports: 
+    ports:
       - "8082:8082"
       - "8081:8081"
     command: "yarn start:worker:combo:prod"
