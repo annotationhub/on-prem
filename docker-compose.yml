@@ -3,7 +3,7 @@ services:
   db:
     env_file:
       - ./conf/db/db.env
-    image: crossfold/hub-db:1.5.0
+    image: crossfold/hub-db:v1.5.0
     ports:
       - "5432:5432"
     volumes:
