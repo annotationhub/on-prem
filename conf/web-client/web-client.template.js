@@ -4,7 +4,7 @@ window.env = {
   GOOGLE_RECAPTCHA_SITE_KEY: '6LdqNOQZAAAAADkUGh7gHhnCB-peRFzOktbDjt-n',
   STRIPE_API_KEY: 'NA',
   AG_GRID_LICENSE_KEY: 'NA',
-  APP_MAIN_URL: '/',
+  MAIN_URL: '/examine',
 
   // auth
   AUTH_PROVIDER: 'Auth0',
@@ -17,4 +17,5 @@ window.env = {
   // features
   // AIRLINE_TITLE or DEFAULT
   FEATURE_BUILD: 'DEFAULT',
+  EXAMINE_PAGE_WORKFLOW_BLUEPRINT: 'aircraft_title'
 }
