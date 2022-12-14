@@ -22,7 +22,7 @@ services:
   server:
     env_file:
       - ./conf/web-server/web-server.env
-    image: crossfold/web-server:v2.1.0.onprem
+    image: crossfold/web-server:v2.1.0.hotfix01.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -41,7 +41,7 @@ services:
   workers:
     env_file:
       - ./conf/workers/workers.env
-    image: crossfold/web-server:v2.1.0.onprem
+    image: crossfold/web-server:v2.1.0.hotfix01.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -62,7 +62,7 @@ services:
   inference-worker:
     env_file:
       - ./conf/inference-worker/inference-worker.env
-    image: crossfold/web-server:v2.1.0.onprem
+    image: crossfold/web-server:v2.1.0.hotfix01.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -80,7 +80,7 @@ services:
     command: "yarn start:worker:inferences:prod"
 
   client:
-    image: crossfold/web-client:v2.1.1.onprem
+    image: crossfold/web-client:v2.1.2.onprem
     restart: always
     volumes:
       - "./conf/web-client/web-client.js:/app/public/env.js"
