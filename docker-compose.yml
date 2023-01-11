@@ -57,7 +57,7 @@ services:
     ports:
       - "8082:8082"
       - "8081:8081"
-    command: "yarn start:worker:combo:prod"
+    command: "yarn start:worker:ocr:prod"
 
   inference-worker:
     env_file:
