@@ -3,7 +3,7 @@ services:
   db:
     env_file:
       - ./conf/db/db.env
-    image: crossfold/hub-db:v1.7.3
+    image: crossfold/hub-db:v1.7.3.onprem
     shm_size: '1g'
     ports:
       - "5432:5432"
