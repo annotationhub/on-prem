@@ -41,7 +41,7 @@ services:
   workers:
     env_file:
       - ./conf/workers/workers.env
-    image: crossfold/web-server:v3.3.6.onprem
+    image: crossfold/web-server:v3.3.3.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
