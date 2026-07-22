@@ -22,7 +22,7 @@ services:
   server:
     env_file:
       - ./conf/web-server/web-server.env
-    image: crossfold/web-server:v6.10.5.1.onprem
+    image: crossfold/web-server:v6.10.4.1.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -41,7 +41,7 @@ services:
   workers:
     env_file:
       - ./conf/workers/workers.env
-    image: crossfold/web-server:v6.10.5.1.onprem
+    image: crossfold/web-server:v6.10.4.1.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -62,7 +62,7 @@ services:
   inference-worker:
     env_file:
       - ./conf/inference-worker/inference-worker.env
-    image: crossfold/web-server:v6.10.5.1.onprem
+    image: crossfold/web-server:v6.10.4.1.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
@@ -82,7 +82,7 @@ services:
   inference-runner:
     env_file:
       - ./conf/workers/workers.env
-    image: crossfold/web-server:v6.10.5.1.onprem
+    image: crossfold/web-server:v6.10.4.1.onprem
     restart: always
     environment:
       - DATABASE_HUBDB_HOST=db
