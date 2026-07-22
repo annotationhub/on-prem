@@ -79,6 +79,26 @@ services:
       - "8083:8083"
     command: "yarn start:worker:inferences:prod"
 
+  inference-runner:
+    env_file:
+      - ./conf/workers/workers.env
+    image: crossfold/web-server:v6.10.3.onprem
+    restart: always
+    environment:
+      - DATABASE_HUBDB_HOST=db
+    volumes:
+      - "${DATA_DIRECTORY}:/var/data"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084"]
+    ports:
+      - "8084:8084"
+    command: "yarn start:worker:inference-runner:prod"
+
   client:
     image: crossfold/web-client:v6.7.5.onprem
     restart: always
