@@ -80,7 +80,7 @@ services:
     command: "yarn start:worker:inferences:prod"
 
   client:
-    image: crossfold/web-client:v6.7.4.onprem
+    image: crossfold/web-client:v6.7.5.onprem
     restart: always
     volumes:
       - "./conf/web-client/web-client.js:/app/public/env.js"
